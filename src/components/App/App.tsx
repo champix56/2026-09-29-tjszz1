@@ -1,24 +1,40 @@
-import B2 from "../uis/B2/B2";
+import { useEffect, useState } from "react";
 import Button from "../uis/Button/Button";
 
-const App = () => {
+const App:React.FC = (props) => {
+  const [counter, setCounter] = useState(0)
+  useEffect(() => {
+    console.log(counter)
+},[counter])
+useEffect(() => {
+  setCounter(-1000)
+}, [])
   return (
     <>
-      <p>DEMAT BREIZH</p>
+      <p>counter: {counter}</p>
       <Button
         color="green"
         onCliked={() => {
-          console.trace("toto");
+          setCounter(counter-1);
+          console.log(counter);
         }}
       >
-        OK
-      </Button>
-      <Button onCliked={() => console.log("cancel")} color="green">
         <img src="favicon.svg" alt="" />
-        Cancel
+        -1
+      </Button>
+      <Button
+        onCliked={() => {
+          setCounter(counter+1);
+          console.log(counter);
+        }}
+        color="green"
+      >
+        <img src="favicon.svg" alt="" />
+        +1
       </Button>
     </>
   );
 };
 
 export default App;
+

@@ -1,11 +1,19 @@
-.Button{
-    background-color: tomato;
-    color:white;
-    font-weight: 900;
-    font-size: x-large;
-    padding: 5px 10px;
-    border-radius:8px ;
-    box-shadow: 15px 15px 25px rgb(79, 78, 78);
-    display: inline;
-    margin-right: 16px;
+.Button {
+  background-color: tomato;
+  color: white;
+  font-weight: 900;
+  font-size: x-large;
+  padding: 5px 10px;
+  border-radius: 8px;
+  box-shadow: 15px 15px 25px rgb(79, 78, 78);
+  display: inline;
+  margin-right: 16px;
+  border: none;
+}
+.Button:hover {
+  box-shadow: 5px 5px 25px rgb(79, 78, 78);
+}
+.clicked {
+  box-shadow: 0 0 0;
+  border: 1px solid yellow;
 }

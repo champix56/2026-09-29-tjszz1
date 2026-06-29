@@ -16,7 +16,7 @@ const Button = ({type='button',children,color,onCliked=()=>{}}: IButtonProps) =>
       className={style.Button + " DarkBackground"}
       style={{ color: color }}
       onClick={(evt)=>{
-        console.log(evt)
+        //console.log(evt)
         onCliked()
       }}
       type={type}

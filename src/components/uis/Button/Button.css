@@ -1,0 +1,9 @@
+.Button{
+    background-color: tomato;
+    color:white;
+    font-weight: 900;
+    font-size: x-large;
+    padding: 5px 10px;
+    border-radius:8px ;
+    box-shadow: 15px 15px 25px grey;
+}

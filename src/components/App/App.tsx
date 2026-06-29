@@ -5,6 +5,11 @@ const App = () => {
     <>
       <p>DEMAT BREIZH</p>
       <Button />
+      <Button />
+      <Button />
+      <Button />
+      <Button />
+      <Button />
     </>
   );
 };

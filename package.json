@@ -11,7 +11,8 @@
     "test": "vitest",
     "gen:layout": "npx generate-react-cli c --type=layout",
     "gen:ui": "npx generate-react-cli c --type=ui",
-    "gen": "npx generate-react-cli c"
+    "gen": "npx generate-react-cli c",
+    "mock:rest":"json-server -p 5614 db.json "
   },
   "dependencies": {
     "bootstrap": "5",

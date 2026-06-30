@@ -6,13 +6,16 @@ import MemeForm from "../MemeForm/MemeForm";
 import Footer from "../uis/Footer/Footer";
 import { emptyMeme, MemeSVGViewer, type ImageInterface } from "orsys-tjs-meme";
 import { useEffect, useState } from "react";
-import { images as imagesFromJSON } from "../../../db.json";
+import { RESSOURCES, REST_URL } from "../../config/constanteRest";
 const App: React.FC = () => {
   const [current, setCurrent] = useState(emptyMeme);
-  // const [images, setimages] = useState<Array<ImageInterface>>([]);
-  // useEffect(() => {
-  //   setimages(imagesFromJSON);
-  // }, []);
+  const [images, setimages] = useState<Array<ImageInterface>>([]);
+  useEffect(() => {
+    //setimages(imagesFromJSON);
+    fetch(`${REST_URL}${RESSOURCES.images}`)
+      .then((resp) => resp.json())
+      .then((arr) => setimages(arr));
+  }, []);
 
   //const onMemeChange=(newCurrent:MemeInterface)=>{}
   return (
@@ -22,11 +25,11 @@ const App: React.FC = () => {
       <FlexH1Grow>
         <MemeSVGViewer
           meme={current}
-          image={imagesFromJSON.find((im) => im.id === current.imageId)}
+          image={images.find((im) => im.id === current.imageId)}
           basePath=""
         />
         <MemeForm
-          images={imagesFromJSON}
+          images={images}
           meme={current}
           onMemeChange={(newCurrent) => {
             setCurrent(newCurrent);

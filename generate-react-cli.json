@@ -10,6 +10,30 @@
       "withStyle": true,
       "withTest": true,
       "withStory": true,
+      "withLazy": true,
+      "customTemplates": {
+        "component": "templates/default/TemplateName.tsx",
+        "test": "templates/default/TemplateName.test.tsx"
+      }
+    },
+    "layout": {
+      "path": "src/components/layouts",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates": {
+        "component": "templates/layout/TemplateName.tsx",
+        "test": "templates/layout/TemplateName.test.tsx",
+        "style": "templates/layout/TemplateName.module.css",
+        "story": "templates/layout/TemplateName.stories.tsx"
+      }
+    },
+    "ui": {
+      "path": "src/components/uis",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
       "withLazy": true
     }
   }

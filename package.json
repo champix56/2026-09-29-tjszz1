@@ -8,7 +8,10 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "gen:layout":"npx generate-react-cli c --type=layout",
+    "gen:ui":"npx generate-react-cli c --type=ui",
+    "gen":"npx generate-react-cli c"
   },
   "dependencies": {
     "react": "^19.2.7",

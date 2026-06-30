@@ -14,6 +14,6 @@
   box-shadow: 5px 5px 25px rgb(79, 78, 78);
 }
 .clicked {
-  box-shadow: 0 0 0;
+  box-shadow: 0 0 0 !important;
   border: 1px solid yellow;
 }

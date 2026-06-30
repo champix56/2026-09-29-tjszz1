@@ -5,7 +5,9 @@ interface HeaderProps {}
 
 const Header: FC<HeaderProps> = () => (
   <div className={styles.Header} data-testid="Header">
-    Header Component
+      Meme<span className={styles.dot}>.</span>
+    <span className={styles.js}>js</span>
+ 
   </div>
 );
 

@@ -1,3 +1,7 @@
 .FlexH1Grow {
     display: flex;
 }
+
+.FlexH1Grow>*:first-child{
+    flex-grow: 1;
+}

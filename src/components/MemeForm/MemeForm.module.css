@@ -3,6 +3,7 @@
   width: 32vw;
   margin-left: 10px;
   overflow-y: auto;
+  text-align: center;
 }
 .smallNumber{
     width: 50px;

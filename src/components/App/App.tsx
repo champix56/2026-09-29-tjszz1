@@ -14,12 +14,14 @@ import { useEffect, useState } from "react";
 import { RESSOURCES, REST_URL } from "../../config/constanteRest";
 import MemeThumbnail from "../uis/MemeThumbnail/MemeThumbnail.stored";
 import MemeSVGViewer from "../uis/MemeSVGViewer/MemeSVGViewer";
+import Modal from "../uis/Modal/Modal";
 const App: React.FC = () => {
     console.log('mailto:desorbaix@free.fr?body='+JSON.stringify({abc:123}))
   console.log('%c%s','font-size:40pt;color:red;text-decoration:underline', 'ton boulot c\'est d\'utiliser lapp pas de nous chercher des poux')
 
   //const onMemeChange=(newCurrent:MemeInterface)=>{}
   return (
+    <>
     <FlexV3Grow>
       <Header />
       <Navbar />
@@ -41,6 +43,8 @@ const App: React.FC = () => {
       </FlexH1Grow>
       <Footer />
     </FlexV3Grow>
+    <Modal/>
+    </>
   );
 };
 

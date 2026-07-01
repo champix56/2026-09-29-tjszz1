@@ -3,10 +3,11 @@ import ressourcesReducer, { addSingleMeme } from "./slices/ressources";
 import { emptyMeme } from "orsys-tjs-meme";
 import currentReducer from "./slices/current";
 import { initialRessourcesLoad } from "./asyncCaller/asyncRessources";
+import modalReducer from "./slices/modal";
 export const store = configureStore({
   reducer: {
     ressources: ressourcesReducer,
-    current: currentReducer,
+    current: currentReducer,modal:modalReducer
   },
 });
 store.subscribe(() => {

@@ -1,0 +1,23 @@
+.Modal {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ACACACBF;
+}
+.container{
+   /* //position: absolute; */
+    margin-top:25vh;
+    height: 50vh;
+    margin-left: 25vw;
+    width: 50vw;
+     display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 28pt;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid black;
+    box-shadow:25px 25px 30px black;
+}

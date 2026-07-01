@@ -1,20 +1,13 @@
 import FlexV3Grow from "../layouts/FlexV3Grow/FlexV3Grow";
 import Header from "../uis/Header/Header";
 import Navbar from "../uis/Navbar/Navbar";
-import FlexH1Grow from "../layouts/FlexH1Grow/FlexH1Grow";
-import MemeForm from "../MemeForm/MemeForm";
 import Footer from "../uis/Footer/Footer";
 import  '../../store/store'
-import {
-  emptyMeme,
-  type ImageInterface,
-  type MemeInterface,
-} from "orsys-tjs-meme";
-import { useEffect, useState } from "react";
-import { RESSOURCES, REST_URL } from "../../config/constanteRest";
-import MemeThumbnail from "../uis/MemeThumbnail/MemeThumbnail.stored";
-import MemeSVGViewer from "../uis/MemeSVGViewer/MemeSVGViewer";
+
 import Modal from "../uis/Modal/Modal";
+import { Route, Routes } from "react-router";
+import Editor from "../../pages/Editor";
+import Home from "../../pages/Home";
 const App: React.FC = () => {
     console.log('mailto:desorbaix@free.fr?body='+JSON.stringify({abc:123}))
   console.log('%c%s','font-size:40pt;color:red;text-decoration:underline', 'ton boulot c\'est d\'utiliser lapp pas de nous chercher des poux')
@@ -25,22 +18,11 @@ const App: React.FC = () => {
     <FlexV3Grow>
       <Header />
       <Navbar />
-      <FlexH1Grow>
-        {/* <MemeThumbnail/> */}
-        {/* <MemeSVGViewer
-          meme={current}
-          image={images.find((im) => im.id === current.imageId)}
-          basePath=""
-        />
-        <MemeForm
-          images={images}
-          meme={current}
-          onMemeChange={(newCurrent) => {
-            setCurrent(newCurrent);
-          }}
-        /> */}
-        <MemeSVGViewer/>
-      </FlexH1Grow>
+        <Routes >
+          <Route path="/editor" Component={Editor}/>
+          <Route path="/editor/:id" Component={Editor}/>
+          <Route path="/" Component={Home}/>
+        </Routes>
       <Footer />
     </FlexV3Grow>
     <Modal/>

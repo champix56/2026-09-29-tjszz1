@@ -12,14 +12,16 @@
     "gen:layout": "npx generate-react-cli c --type=layout",
     "gen:ui": "npx generate-react-cli c --type=ui",
     "gen": "npx generate-react-cli c",
-    "mock:rest":"json-server -p 5614 db.json "
+    "mock:rest": "json-server -p 5614 db.json "
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.12.0",
     "bootstrap": "5",
     "orsys-tjs-meme": "^1.0.3",
     "react": "^19.2.7",
     "react-bootstrap": "^2.10.10",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "react-redux":"^9.3.0"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.1",

@@ -4,17 +4,43 @@ import Navbar from "../uis/Navbar/Navbar";
 import FlexH1Grow from "../layouts/FlexH1Grow/FlexH1Grow";
 import MemeForm from "../MemeForm/MemeForm";
 import Footer from "../uis/Footer/Footer";
-import { emptyMeme, MemeSVGViewer, type ImageInterface } from "orsys-tjs-meme";
+import {
+  emptyMeme,
+  MemeSVGViewer,
+  type ImageInterface,
+  type MemeInterface,
+} from "orsys-tjs-meme";
 import { useEffect, useState } from "react";
 import { RESSOURCES, REST_URL } from "../../config/constanteRest";
+import MemeThumbnail from "../uis/MemeThumbnail/MemeThumbnail";
 const App: React.FC = () => {
   const [current, setCurrent] = useState(emptyMeme);
   const [images, setimages] = useState<Array<ImageInterface>>([]);
+  const [memes, setmemes] = useState<Array<MemeInterface>>([]);
   useEffect(() => {
     //setimages(imagesFromJSON);
-    fetch(`${REST_URL}${RESSOURCES.images}`)
+    const pri=fetch(`${REST_URL}${RESSOURCES.images}`)
       .then((resp) => resp.json())
-      .then((arr) => setimages(arr));
+      //.then((arr) => setimages(arr));
+    const prm=fetch(`${REST_URL}${RESSOURCES.memes}`)
+      .then((resp) => resp.json())
+      //.then((arr) => setmemes(arr));
+
+    const timeOut=new Promise((resolved,rejeted)=>{
+      setTimeout(()=>{
+        resolved('TimeOut ecoulé')
+      },200)
+    })
+
+    const prAll=Promise.all([pri,prm])
+    Promise.race([prAll,timeOut]).then(resp=>{
+      if( typeof resp=='string'){console.log('error de request timeout')}
+      else {
+        setimages((resp as [ImageInterface[],MemeInterface[]] )[0])
+        setmemes((resp as [ImageInterface[],MemeInterface[]] )[1])
+      }
+    })
+
   }, []);
 
   //const onMemeChange=(newCurrent:MemeInterface)=>{}
@@ -23,7 +49,8 @@ const App: React.FC = () => {
       <Header />
       <Navbar />
       <FlexH1Grow>
-        <MemeSVGViewer
+        <MemeThumbnail memes={memes} images={images}/>
+        {/* <MemeSVGViewer
           meme={current}
           image={images.find((im) => im.id === current.imageId)}
           basePath=""
@@ -34,7 +61,7 @@ const App: React.FC = () => {
           onMemeChange={(newCurrent) => {
             setCurrent(newCurrent);
           }}
-        />
+        /> */}
       </FlexH1Grow>
       <Footer />
     </FlexV3Grow>

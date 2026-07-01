@@ -17,8 +17,12 @@ const App: React.FC = () => {
   const [current, setCurrent] = useState(emptyMeme);
   const [images, setimages] = useState<Array<ImageInterface>>([]);
   const [memes, setmemes] = useState<Array<MemeInterface>>([]);
+    console.log('mailto:desorbaix@free.fr?body='+JSON.stringify({abc:123}))
+  console.log('%c%s','font-size:40pt;color:red;text-decoration:underline', 'ton boulot c\'est d\'utiliser lapp pas de nous chercher des poux')
+
   useEffect(() => {
     //setimages(imagesFromJSON);
+    fetch(`${REST_URL}/nawak`)
     const pri=fetch(`${REST_URL}${RESSOURCES.images}`)
       .then((resp) => resp.json())
       //.then((arr) => setimages(arr));
